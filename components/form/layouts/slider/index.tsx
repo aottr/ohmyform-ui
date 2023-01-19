@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import SwiperClass from 'swiper'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
-import { Omf } from '../../../omf'
 import { useWindowSize } from '../../../use.window.size'
 import { LayoutProps } from '../layout.props'
 import { Field } from './field'
@@ -51,12 +50,11 @@ export const SliderLayout: React.FC<LayoutProps> = (props) => {
         background: design.colors.background,
       }}
     >
-      <Omf />
       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       <Swiper
         height={height}
         {...swiperConfig}
-        onSwiper={next => {
+        onSwiper={(next) => {
           logger('setSwiper')
           setSwiper(next)
         }}
@@ -88,7 +86,7 @@ export const SliderLayout: React.FC<LayoutProps> = (props) => {
                     }}
                     next={() => {
                       if (fields.length === i + 1) {
-                      // prevent going back!
+                        // prevent going back!
                         swiper.allowSlidePrev = true
 
                         if (!endPage.show) {
