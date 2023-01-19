@@ -3,6 +3,7 @@ import { LoadingPage } from 'components/loading.page'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
+import Head from 'next/head'
 import { useTranslation } from 'react-i18next'
 import { CardLayout } from '../../../components/form/layouts/card'
 import { SliderLayout } from '../../../components/form/layouts/slider'
@@ -44,7 +45,14 @@ const Index: NextPage = () => {
 
   switch (data.form.design.layout) {
     case 'card':
-      return <CardLayout form={data.form} submission={submission} />
+      return (
+        <>
+          <Head>
+            <title>{data.form.title}</title>
+          </Head>
+          <CardLayout form={data.form} submission={submission} />
+        </>
+      )
 
     case 'slider':
     default:
