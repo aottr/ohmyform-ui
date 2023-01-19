@@ -9,7 +9,8 @@
   "row": {
     "created": "Created",
     "email": "Email",
-    "roles": "Role"
+    "roles": "Role",
+    "menu": "Menu"
   },
   "updateError": "Could not update user",
   "updateNow": "Save",
