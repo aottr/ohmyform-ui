@@ -15,7 +15,6 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactMarkdown from 'react-markdown'
-import { Omf } from '../../components/omf'
 import { useSettingsQuery } from '../../graphql/query/settings.query'
 import scss from './index.module.scss'
 
@@ -52,7 +51,6 @@ const Index: NextPage = () => {
 
   return (
     <AuthLayout loading={loading}>
-      <Omf />
       <Form
         form={form}
         name="login"
