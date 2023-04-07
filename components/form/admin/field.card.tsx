@@ -209,6 +209,8 @@ export const FieldCard: React.FC<Props> = ({
         <Checkbox />
       </Form.Item>
 
+      <TypeComponent field={field} form={form} />
+
       <Form.List name={[field.name as string, 'logic']}>
         {(logic, { add, remove, move }) => {
           const addAndMove = (index: number) => (defaults) => {
