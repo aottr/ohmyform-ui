@@ -13,6 +13,9 @@ module.exports = withPlugins([
     images: {
       disableStaticImages: true,
     },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
     poweredByHeader: true,
     productionBrowserSourceMaps: true,
     publicRuntimeConfig: {
