@@ -44,7 +44,7 @@
     "react-markdown": "^8.0.0",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
-    "@redux-devtools/extension": "^3.2.5",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "responsive-loader": "^2.3.0",
     "sass": "^1.49.9",

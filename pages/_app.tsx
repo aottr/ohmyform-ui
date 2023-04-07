@@ -15,6 +15,7 @@ import { NextConfigType } from '../next.config.type'
 const { publicRuntimeConfig } = getConfig() as NextConfigType
 
 const App: AppType = ({ Component, pageProps }) => {
+
   useEffect(() => {
     if (publicRuntimeConfig.environment !== 'production') {
       debug.enable('*,-micromark')
@@ -27,8 +28,8 @@ const App: AppType = ({ Component, pageProps }) => {
     }
 
     const resize = () => {
-      const vh = window.innerHeight * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 
     window.addEventListener('resize', resize)
@@ -39,7 +40,7 @@ const App: AppType = ({ Component, pageProps }) => {
   return (
     <ApolloProvider client={getClient()}>
       <Head>
-        <title>Form</title>
+        <title>OhMyForm</title>
         <meta name="theme-color" content={'#4182e4'} />
       </Head>
       <Component {...pageProps} />

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoadingPage } from '../components/loading.page'
+import { Omf } from '../components/omf'
 import { useStatusQuery } from '../graphql/query/status.query'
 import { NextConfigType } from '../next.config.type'
 
@@ -23,7 +24,9 @@ const Index: NextPage = () => {
     if (router.pathname !== window.location.pathname) {
       let href = router.asPath
       const as = router.asPath
-      const possible = [/(\/form\/)[^/]+/i, /(\/admin\/forms\/)[^/]+/i, /(\/admin\/users\/)[^/]+/i]
+      const possible = [
+        /(\/form\/)[^/]+/i, /(\/admin\/forms\/)[^/]+/i, /(\/admin\/users\/)[^/]+/i,
+      ]
 
       possible.forEach((r) => {
         if (r.test(as)) {
@@ -56,6 +59,7 @@ const Index: NextPage = () => {
         background: publicRuntimeConfig.mainBackground,
       }}
     >
+      <Omf />
       <div
         style={{
           margin: 'auto',

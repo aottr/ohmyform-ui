@@ -4,6 +4,7 @@ import { darken, lighten } from 'polished'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
+import { Omf } from '../../../omf'
 import { StyledButton } from '../../../styled/button'
 import { useMath } from '../../../use.math'
 import { fieldTypes } from '../../types'
@@ -46,7 +47,7 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
   const updateValues = useCallback(() => {
     const defaults = {}
 
-    fields.forEach((field) => {
+    fields.forEach(field => {
       const defaultValue = field.defaultValue
         ? fieldTypes[field.type].parseValue(field.defaultValue)
         : null
@@ -60,19 +61,23 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
 
     // now calculate visibility
     const nextVisibility = {}
-    fields.forEach((field) => {
+    fields.forEach(field => {
       if (!field.logic) return
 
-      const logic = field.logic.filter((logic) => logic.action === 'visible')
+      const logic = field.logic
+        .filter(logic => logic.action === 'visible')
 
       if (logic.length === 0) {
         return
       }
 
       nextVisibility[field.id] = logic
-        .map((logic) => {
+        .map(logic => {
           try {
-            const r = evaluator(logic.formula, defaults)
+            const r = evaluator(
+              logic.formula,
+              defaults
+            )
 
             return Boolean(r)
           } catch {
@@ -88,7 +93,9 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
     }
 
     setVisibility(nextVisibility)
-  }, [fields, form, visiblity])
+  }, [
+    fields, form, visiblity,
+  ])
 
   useEffect(() => {
     updateValues()
@@ -135,7 +142,11 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
       case 'form':
         return (
           <Card>
-            <Form form={form} onFinish={finish} onValuesChange={updateValues}>
+            <Form
+              form={form}
+              onFinish={finish}
+              onValuesChange={updateValues}
+            >
               {fields.map((field, i) => {
                 if (field.type === 'hidden') {
                   return null
@@ -145,7 +156,14 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
                   return null
                 }
 
-                return <Field key={field.id} field={field} design={design} focus={i === 0} />
+                return (
+                  <Field
+                    key={field.id}
+                    field={field}
+                    design={design}
+                    focus={i === 0}
+                  />
+                )
               })}
               <div
                 style={{
@@ -195,6 +213,8 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
 
   return (
     <MyCard background={design.colors.background}>
+      <Omf />
+
       <Spin spinning={loading}>{render()}</Spin>
     </MyCard>
   )
