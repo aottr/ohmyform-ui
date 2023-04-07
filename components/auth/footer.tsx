@@ -33,7 +33,7 @@ const AuthFooterInner: React.FC<Props> = (props) => {
         ? [
           <span style={{ color: '#FFF' }} key={'user'}>
               Hi, {props.me.username}
-          </span>,
+            </span>,
           props.me.roles.includes('admin') && (
             <Link key={'admin'} href={'/admin'}>
               <Button
@@ -120,7 +120,7 @@ const AuthFooterInner: React.FC<Props> = (props) => {
               color: '#FFF',
             }}
           >
-            OhMyForm
+            Powered by OhMyForm
           </Button>
           <Button
             type={'link'}
