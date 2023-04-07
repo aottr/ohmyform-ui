@@ -4,7 +4,6 @@ import { darken, lighten } from 'polished'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
-import { Omf } from '../../../omf'
 import { StyledButton } from '../../../styled/button'
 import { useMath } from '../../../use.math'
 import { fieldTypes } from '../../types'
@@ -213,7 +212,7 @@ export const CardLayout: React.FC<LayoutProps> = (props) => {
 
   return (
     <MyCard background={design.colors.background}>
-      <Omf />
+
 
       <Spin spinning={loading}>{render()}</Spin>
     </MyCard>

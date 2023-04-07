@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import SwiperClass from 'swiper'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
-import { Omf } from '../../../omf'
 import { useWindowSize } from '../../../use.window.size'
 import { LayoutProps } from '../layout.props'
 import { Field } from './field'
@@ -51,7 +50,6 @@ export const SliderLayout: React.FC<LayoutProps> = (props) => {
         background: design.colors.background,
       }}
     >
-      <Omf />
       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       <Swiper
         height={height}

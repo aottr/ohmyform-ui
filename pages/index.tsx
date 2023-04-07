@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LoadingPage } from '../components/loading.page'
-import { Omf } from '../components/omf'
 import { useStatusQuery } from '../graphql/query/status.query'
 import { NextConfigType } from '../next.config.type'
 
@@ -59,7 +58,6 @@ const Index: NextPage = () => {
         background: publicRuntimeConfig.mainBackground,
       }}
     >
-      <Omf />
       <div
         style={{
           margin: 'auto',
